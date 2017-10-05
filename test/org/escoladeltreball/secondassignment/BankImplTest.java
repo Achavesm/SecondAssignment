@@ -9,6 +9,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -17,6 +18,9 @@ import org.junit.Test;
  */
 public class BankImplTest {
 
+	private static BankImpl main;
+	private static BankImpl test;
+	
 	/**
 	 * @throws java.lang.Exception
 	 */
@@ -36,6 +40,8 @@ public class BankImplTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
+		main = new CashAccount("Aleix", 500.0);
+		test = new CreditAccount("Aleix", -150.0);
 	}
 
 	/**
@@ -43,14 +49,20 @@ public class BankImplTest {
 	 */
 	@After
 	public void tearDown() throws Exception {
+		main = null;
+		test = null;
 	}
 
 	/**
 	 * Test method for {@link org.escoladeltreball.secondassignment.BankImpl#withdraw(double)}.
+	 * @throws Exception 
 	 */
 	@Test
-	public final void testWithdraw() {
-		fail("Not yet implemented"); // TODO
+	public final void testWithdraw() throws Exception {
+		main.withdraw(300.0);
+		assertEquals(200.0, main.getBalance(), 1e-4);
+		test.withdraw(50.0);
+		assertEquals(-200.0, test.getBalance(), 1e-4);
 	}
 
 	/**
@@ -58,7 +70,10 @@ public class BankImplTest {
 	 */
 	@Test
 	public final void testDeposit() {
-		fail("Not yet implemented"); // TODO
+		main.deposit(200.0);
+		assertEquals(700.0, main.getBalance(), 1e-4);
+		test.deposit(150.0);
+		assertEquals(0.0, test.getBalance(), 1e-4);
 	}
 
 	/**
@@ -66,7 +81,8 @@ public class BankImplTest {
 	 */
 	@Test
 	public final void testToDollars() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(700.0, main.toDollars(), 1e-4);
+		assertEquals(-210.0, test.toDollars(), 1e-4);
 	}
 
 	/**
@@ -74,7 +90,9 @@ public class BankImplTest {
 	 */
 	@Test
 	public final void testGetBalance() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(500.0, main.getBalance(), 1e-4);
+		assertEquals(-150.0, test.getBalance(), 1e-4);
+		
 	}
 
 	/**
@@ -82,7 +100,9 @@ public class BankImplTest {
 	 */
 	@Test
 	public final void testIsBalanceNegative() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(false, main.isBalanceNegative());
+		assertEquals(true, test.isBalanceNegative());
+		
 	}
 
 }
