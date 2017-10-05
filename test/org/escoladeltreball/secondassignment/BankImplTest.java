@@ -20,7 +20,7 @@ public class BankImplTest {
 
 	private static BankImpl main;
 	private static BankImpl test;
-	
+
 	/**
 	 * @throws java.lang.Exception
 	 */
@@ -92,7 +92,7 @@ public class BankImplTest {
 	public final void testGetBalance() {
 		assertEquals(500.0, main.getBalance(), 1e-4);
 		assertEquals(-150.0, test.getBalance(), 1e-4);
-		
+
 	}
 
 	/**
@@ -102,7 +102,7 @@ public class BankImplTest {
 	public final void testIsBalanceNegative() {
 		assertEquals(false, main.isBalanceNegative());
 		assertEquals(true, test.isBalanceNegative());
-		
+
 	}
 
 }

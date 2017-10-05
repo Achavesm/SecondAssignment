@@ -10,8 +10,8 @@ package org.escoladeltreball.secondassignment;
 public class CashAccount extends BankImpl {
 
 	/**
-	 * @param owner
-	 * @param balance
+	 * @param owner as de owner of the Account
+	 * @param balance as the initial balance of the Account
 	 */
 	public CashAccount(String owner, double balance) {
 		super(owner, balance);

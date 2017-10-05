@@ -38,6 +38,7 @@ public abstract class BankImpl implements Bank {
 
 	@Override
 	public boolean isBalanceNegative() {
+		//If the balance is less than zero, it will be negative
 		if (getBalance() < 0.0) {
 			return true;
 		} else {
