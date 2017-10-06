@@ -21,6 +21,8 @@ public class CashAccount extends BankImpl {
 	public void withdraw(double euros) throws Exception {
 		if (super.getBalance() - euros > 0) {
 			super.balance = super.balance - euros;
+		} else {
+			throw new Exception("Insufcient balance Exception");
 		}
 	}
 }

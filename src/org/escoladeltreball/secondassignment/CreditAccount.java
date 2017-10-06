@@ -16,6 +16,8 @@ public class CreditAccount extends BankImpl {
 		//if the balance after withdrawing would be less than the minimum possible balance, it won't do it
 		if (super.getBalance() - euros > MIN_BALANCE) {
 			super.balance = super.balance - euros;
+		} else {
+			throw new Exception("Insufcient balance Exception");
 		}
 	}
 }
