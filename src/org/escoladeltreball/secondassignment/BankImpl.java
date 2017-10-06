@@ -12,6 +12,11 @@ public abstract class BankImpl implements Bank {
 	protected String owner;
 	protected double balance;
 
+	/**
+	 * 
+	 * @param owner as the owner of the account
+	 * @param balance as the initial balance of the account
+	 */
 	public BankImpl(String owner, double balance) {
 		this.owner = owner;
 		this.balance = balance;
